@@ -1,0 +1,16 @@
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>Click the image for a surpise! -></p>
+            </div>
+            <div class="col">
+                <img 
+                    id = "imgBlock" 
+                    src="./images/cat1.jpg"
+                    onclick="switchImage()">
+            </div>
+            <div class = "col">
+                Third column
+            </div>
+        </div>
+    </div>
