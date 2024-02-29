@@ -1,0 +1,5 @@
+    <div class="btn-group">
+        <a href="./location.html" target="_blank" class="btn btn-primary">User Location</a>
+        <a href="./summary.html" target="_blank" class="btn btn-primary">Summary</a>
+        <a href="./userInfo.html" target="_blank" class="btn btn-primary">User Info</a>
+      </div>
