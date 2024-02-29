@@ -7,25 +7,35 @@
     <link rel="icon" type="image/x-icon" href="./images/favicon.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+<link rel="stylesheet" href="./home.css">
 
 </head>
 <body>
     <img src="./images/favicon.jpg" style="width: 10%; height: 10%;">
-    <h1>Welcome!</h1>
+    <h1 class="title">Welcome to FurFinder!</h1>
 
     <form action="/search" method="get">
         <input type="text" placeholder="Search..." name="search">
+        <br>
         <button type ="submit">Search</button>
     </form>
-
-    <img src="./images/0bf639f1c40090b1e704ce98f9110477-2201899244.jpg" style="width: 30%; height: 30%;">
-    <img src="./images/8-but-so-cute-260354741.jpg" style="width: 30%; height: 30%;">
-    <img src="./images/BUSINESSCAT_edited-1-3826287550.jpg" style="width: 30%; height: 30%;">
-    <img src="./images/cute-dogs-214-01-317922724.jpg" style="width: 30%; height: 30%;">
-    <img src="./images/portrait-of-female-syrian-hamster-buleczka-90340213-57fff1a55f9b5805c2b149c7-2932812423.jpg" style="width: 30%; height: 30%;">
-    <img src="./images/txwgyofrqqgo0jxud41i-404914924.jpg" style="width: 30%; height: 30%;">
-    <p>Information</p>
-
+<div class="image-row">
+    <div class="image-container">
+    <img src="./images/0bf639f1c40090b1e704ce98f9110477-2201899244.jpg" style="width: 20%; height: 20%;">
+    <p class="image-description">Pet 1</p>
+    <img src="./images/8-but-so-cute-260354741.jpg" style="width: 20%; height: 20%;">
+    <p class="image-description">Pet 2</p>
+    <img src="./images/BUSINESSCAT_edited-1-3826287550.jpg" style="width: 20%; height: 20%;">
+    <p class="image-description">Pet 3</p>
+    </div>  
+    </div>
+    <div class="image-row">
+    <img src="./images/cute-dogs-214-01-317922724.jpg" style="width: 20%; height: 20%;">
+    <p class="image-description">Pet 4</p>
+    <img src="./images/portrait-of-female-syrian-hamster-buleczka-90340213-57fff1a55f9b5805c2b149c7-2932812423.jpg" style="width: 20%; height: 20%;">
+    <p class="image-description">Pet 5</p>
+    <img src="./images/txwgyofrqqgo0jxud41i-404914924.jpg" style="width: 20%; height: 20%;">
+    <p class="image-description">Pet 6</p>
+</div>
 </body>
 </html>
