@@ -1,0 +1,82 @@
+app.get('/getUserList', async function(req, res)
+{
+    // mongo 
+    const dbClient = await getUser()
+    var dbo = dbClient.db('groupProject') 
+    var collection = dbo.collection('mongoGroupProject')
+
+    // unknown amount of time as well, so need await
+    const allDocuments = await collection.find().toArray()
+
+    // 
+    const listFromMongo = []
+    for (let i = 0; i < allDocuments.length; i++)
+    {
+        listFromMongo.push(allDocuments[i])
+    }
+    
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(listFromMongo));
+});
+
+
+// save a whole new person
+app.post('/saveUserInfo', async function(req, res)
+{
+    const firstName= req.body.firstName
+    const lastName= req.body.lastName
+    const dateOfBirth = req.body.dateOfBirth
+    const bio = req.body.bio
+    const userId=  req.body.userID
+    const pet= req.body.pet
+
+
+    //mongo 
+    const dbClient = await getUser()
+
+    var dbo = dbClient.db('groupProject')
+    // change
+    dbo.collection('mongoGroupProject').insertOne({firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, bio: bio, userId:userId, pet: pet}, function(err, res)
+    {
+        if(err) throw(err)
+        dbClient.close()
+    })
+
+    res.setHeader('Content-Type', 'application/json');
+
+    const allDocuments = await dbo.collection('mongoGroupProject').find().toArray()
+    console.log(allDocuments)
+    const listFromMongo = []
+    //var lst = {firstName, lastName, dateOfBirth, bio, userId, pet}
+    for (let i = 0; i < allDocuments.length; i++)
+    {
+        listFromMongo.push(allDocuments[i])
+    }
+    res.end(JSON.stringify(listFromMongo))
+})
+
+
+// delete
+app.post('/deleteUser', function(req, res)
+{
+    //set the index to -1
+    var indexOfPerson = -1
+
+    // find the index of which object contains the ID that is being deleted
+    for (var i = 0; i < userInfo.length; i++)
+    {
+        if(Object.values(userInfo[i]).indexOf(req.body.otherUserId) > -1)
+        {
+            indexOfPerson = i;
+        }
+    }
+
+    //splice it to get rid of it
+    if(indexOfPerson > -1)
+    {
+        userInfo.splice(indexOfPerson, 1)
+    }
+    
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(userInfo));
+})
