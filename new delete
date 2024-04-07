@@ -1,0 +1,17 @@
+//delete code
+
+dbo.collection('mongoGroupProject').deleteOne(
+                { userId: req.body.userId },
+                function(err, deleteResult) {
+                    if (err) {
+                        console.error("Error deleting document:", err);
+                        return;
+                    }
+                    console.log("Document deleted successfully.");
+                }
+            );
+        } else {
+            console.log("No documents matched the update criteria.");
+        }
+    }
+);
